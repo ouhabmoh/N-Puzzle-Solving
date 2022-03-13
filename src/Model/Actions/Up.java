@@ -13,6 +13,7 @@ public class Up extends Action{
         Index videIndex = taquin.getCaseVide();
         Index Up = new Index(videIndex.getI()-1,videIndex.getJ());
         taquin.change(videIndex,Up);
+        taquin.setCaseVideIndex(Up);
 
 
     }

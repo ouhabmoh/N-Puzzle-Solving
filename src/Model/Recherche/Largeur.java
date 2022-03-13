@@ -45,4 +45,9 @@ public class Largeur extends Recherche{
         return Collections.emptyList();
     }
 
+
+    @Override
+    public String toString() {
+        return "BFS";
+    }
 }

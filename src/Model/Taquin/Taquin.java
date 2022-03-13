@@ -4,11 +4,13 @@ import java.util.Arrays;
 
 public class Taquin implements Cloneable{
     private int[][] taquin;
+    private Index caseVideIndex;
     private int size;
 
     public Taquin(int size) {
         this.taquin = new int[size][size];
         this.size = size;
+        this.caseVideIndex = searchCase(0);
     }
 
     public Taquin(String taquin, int size) {
@@ -24,15 +26,21 @@ public class Taquin implements Cloneable{
         }
         this.taquin = mat;
         this.size = size;
+        this.caseVideIndex = searchCase(0);
     }
 
     public Taquin(int[][] taquin, int size) {
         this.taquin = taquin;
         this.size = size;
+        this.caseVideIndex = searchCase(0);
     }
 
     public Index getCaseVide(){
-        return searchCase(0);
+        return caseVideIndex;
+    }
+
+    public void setCaseVideIndex(Index caseVideIndex) {
+        this.caseVideIndex = caseVideIndex;
     }
 
     public Index searchCase(int v){

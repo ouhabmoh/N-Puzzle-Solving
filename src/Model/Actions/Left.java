@@ -15,6 +15,7 @@ public class Left extends Action {
         Index videIndex = taquin.getCaseVide();
         Index left = new Index(videIndex.getI(),videIndex.getJ()-1);
         taquin.change(videIndex,left);
+        taquin.setCaseVideIndex(left);
 
     }
 

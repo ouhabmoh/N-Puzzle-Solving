@@ -14,7 +14,7 @@ public class Down extends Action{
         Index videIndex = taquin.getCaseVide();
         Index down = new Index(videIndex.getI()+1,videIndex.getJ());
         taquin.change(videIndex,down);
-
+        taquin.setCaseVideIndex(down);
     }
 
     @Override

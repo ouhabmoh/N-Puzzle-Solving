@@ -2,6 +2,9 @@ package Model.Taquin;
 
 import Model.Main;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class InitEtat {
 
     public static Taquin getEtatInitial(){
@@ -19,6 +22,41 @@ public class InitEtat {
 //
 //        taquin.setTaquin(mat);
         return taquin;
+    }
+
+    public static List<Taquin> getTestingData(){
+        List<Taquin> taquins = Arrays.asList(new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN())
+                                            ,new Taquin("283164705", Main.getN()));
+        return taquins;
     }
 
     public static Taquin getEtatFinal(){

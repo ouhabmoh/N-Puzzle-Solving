@@ -61,4 +61,9 @@ public class A extends Recherche{
         int score = noeud.getProfondeur() + heuristique.evaluate(noeud,but);
         noeud.setScore(score);
     }
+
+    @Override
+    public String toString() {
+        return "A*";
+    }
 }

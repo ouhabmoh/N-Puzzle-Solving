@@ -97,4 +97,7 @@ public abstract class Recherche implements Runnable {
         return fermer.size();
     }
 
+    public Noeud getRoot() {
+        return root;
+    }
 }

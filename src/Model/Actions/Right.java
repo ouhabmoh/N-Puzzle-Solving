@@ -15,6 +15,7 @@ public class Right extends Action{
         Index videIndex = taquin.getCaseVide();
         Index right = new Index(videIndex.getI(),videIndex.getJ()+1);
         taquin.change(videIndex,right);
+        taquin.setCaseVideIndex(right);
 
     }
 
