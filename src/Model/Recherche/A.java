@@ -1,8 +1,8 @@
 package Model.Recherche;
 
 import Model.Actions.Action;
-import Model.Heuristique.Heuristique;
-import Model.OuverDS.Priority;
+import Model.Recherche.Heuristique.Heuristique;
+import Model.Recherche.OuverDS.Priority;
 import Model.Taquin.Taquin;
 
 public class A extends Recherche{

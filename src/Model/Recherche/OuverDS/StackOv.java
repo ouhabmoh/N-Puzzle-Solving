@@ -1,4 +1,4 @@
-package Model.OuverDS;
+package Model.Recherche.OuverDS;
 
 import Model.Recherche.Noeud;
 
@@ -25,6 +25,11 @@ public class StackOv implements Ouvert{
     @Override
     public Noeud remove() {
         return stack.pop();
+    }
+
+    @Override
+    public void clear() {
+        stack.clear();
     }
 
     @Override

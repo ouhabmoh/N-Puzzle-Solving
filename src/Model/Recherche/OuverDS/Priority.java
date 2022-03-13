@@ -1,4 +1,4 @@
-package Model.OuverDS;
+package Model.Recherche.OuverDS;
 
 import Model.Recherche.Noeud;
 
@@ -24,6 +24,12 @@ public class Priority implements Ouvert {
     public Noeud remove() {
         return ouvert.poll();
     }
+
+    @Override
+    public void clear() {
+        ouvert.clear();
+    }
+
 
     @Override
     public int size() {

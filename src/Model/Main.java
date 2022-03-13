@@ -1,14 +1,10 @@
 package Model;
 
-import Model.Actions.Action;
-import Model.Heuristique.Heuristique;
-import Model.Heuristique.Manhatten;
+import Model.Recherche.Heuristique.Manhatten;
 import Model.Recherche.A;
 import Model.Recherche.Recherche;
 import Model.Taquin.InitEtat;
 import Model.Taquin.Taquin;
-
-import java.util.List;
 
 public class Main {
     private static int n = 3;
@@ -21,15 +17,14 @@ public class Main {
 
 		etatFinal = InitEtat.getEtatFinal();
 		etatFinal.afficherTaquin();
-		Heuristique heuristique = new Manhatten();
-		Recherche recherche = new A(etatInitial, etatFinal, heuristique);
-//		Noeud noeudBut = new Noeud(etatFinal);
-//		if(largeur.isGoal(noeudBut))
-//			exit(1);
-		List<Action> actionList = recherche.run();
 
+		Recherche recherche = new A(etatInitial, etatFinal, new Manhatten());
 
-		actionList.forEach(System.out::println);
+		long time = TimeTest.testTime(recherche);
+		System.out.println(time);
+		// get right statical data about node develope et exploré
+		SaveResults saveResults = new SaveResults(etatInitial, recherche.getSolution(), time, recherche.getOuvertSize(), recherche.getFermerSize(), "A*");
+		saveResults.save();
 
     }
 

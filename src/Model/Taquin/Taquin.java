@@ -105,4 +105,15 @@ public class Taquin implements Cloneable{
         }
         return true;
     }
+
+    public String getTaquinStr(){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+               stringBuilder.append(taquin[i][j]);
+            }
+        }
+        return stringBuilder.toString();
+    }
 }

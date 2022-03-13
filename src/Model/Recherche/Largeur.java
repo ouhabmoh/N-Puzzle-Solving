@@ -1,6 +1,6 @@
 package Model.Recherche;
 
-import Model.OuverDS.QueueO;
+import Model.Recherche.OuverDS.QueueO;
 import Model.Taquin.Taquin;
 
 public class Largeur extends Recherche{

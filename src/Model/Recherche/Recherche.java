@@ -1,12 +1,13 @@
 package Model.Recherche;
 
 import Model.Actions.*;
-import Model.OuverDS.Ouvert;
+import Model.Recherche.OuverDS.Ouvert;
+import Model.Runnable;
 import Model.Taquin.Taquin;
 
 import java.util.*;
 
-public abstract class Recherche {
+public abstract class Recherche implements Runnable {
     private Noeud root;
     protected Taquin but;
     protected Ouvert ouvert;
@@ -14,6 +15,7 @@ public abstract class Recherche {
     private static List<Action> actions = Arrays.asList(new Up(), new Down(), new Right(), new Left());
     private int profondeur = 0;
     protected int maxProfondeur = -1;
+    protected List<Action> solution;
 
     public Recherche(Taquin etatInitial, Taquin but) {
         this.root = new Noeud(etatInitial);
@@ -31,9 +33,12 @@ public abstract class Recherche {
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
+            if(fermer.containsKey(noeud.getTaquin()))
+                continue;
+
             if(isGoal(noeud)){
                 System.out.println(noeud.getProfondeur());
-                return getSolution(noeud);
+                return trackSolution(noeud);
             }
 
             if(profondeur == maxProfondeur){
@@ -42,8 +47,7 @@ public abstract class Recherche {
             }
 
 
-            if(fermer.containsKey(noeud.getTaquin()))
-                continue;
+
 
 
             fermer.put(noeud.getTaquin(),noeud);
@@ -59,18 +63,22 @@ public abstract class Recherche {
 
     public boolean isGoal(Noeud noeud){
         Taquin taquin = noeud.getTaquin();
-        return taquin.equals(but);
+        return Arrays.deepEquals(taquin.getTaquin(),but.getTaquin());
     }
 
-    public List<Action> getSolution(Noeud goal){
+    public List<Action> trackSolution(Noeud goal){
         List<Action> actions = new ArrayList<>(goal.getProfondeur());
 
         while(goal.getPere() != null){
             actions.add(0, goal.getAction());
             goal= goal.getPere();
         }
-
+        solution = actions;
         return actions;
+    }
+
+    public List<Action> getSolution() {
+        return solution;
     }
 
     public List<Action> getValidActions(Noeud noeud){
@@ -99,6 +107,12 @@ public abstract class Recherche {
     }
 
 
+    public void reset(){
+        ouvert.clear();
+        fermer.clear();
+        profondeur = 0;
+    }
+
 
 
 
@@ -109,6 +123,14 @@ public abstract class Recherche {
 
         System.out.println("Profondeur: "+profondeur+" Ouvert: "+ouvert.size()+" Fermer: "+fermer.size());
 
+    }
+
+    public int getOuvertSize(){
+        return ouvert.size();
+    }
+
+    public int getFermerSize(){
+        return fermer.size();
     }
 
 }

@@ -1,4 +1,4 @@
-package Model.OuverDS;
+package Model.Recherche.OuverDS;
 
 import Model.Recherche.Noeud;
 
@@ -26,6 +26,11 @@ public class QueueO implements Ouvert{
     @Override
     public Noeud remove() {
         return queue.remove();
+    }
+
+    @Override
+    public void clear() {
+        queue.clear();
     }
 
     @Override

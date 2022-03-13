@@ -1,4 +1,4 @@
-package Model.Heuristique;
+package Model.Recherche.Heuristique;
 
 import Model.Recherche.Noeud;
 import Model.Taquin.Taquin;
