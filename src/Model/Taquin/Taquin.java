@@ -11,6 +11,21 @@ public class Taquin implements Cloneable{
         this.size = size;
     }
 
+    public Taquin(String taquin, int size) {
+        int[][] mat = new int[size][size];
+        int deb = 0;
+        int fin = size;
+        for(int i = 0; i < size; i++){
+            String str = taquin.substring(deb,fin);
+            for(int j = 0; j < size; j++)
+                mat[i][j] = Integer.parseInt(String.valueOf(str.charAt(j)));
+            deb += size;
+            fin += size;
+        }
+        this.taquin = mat;
+        this.size = size;
+    }
+
     public Taquin(int[][] taquin, int size) {
         this.taquin = taquin;
         this.size = size;
@@ -116,4 +131,6 @@ public class Taquin implements Cloneable{
         }
         return stringBuilder.toString();
     }
+
+
 }
