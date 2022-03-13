@@ -2,7 +2,7 @@ package Model.Taquin;
 
 import java.util.Arrays;
 
-public class Taquin {
+public class Taquin implements Cloneable{
     private int[][] taquin;
     private int size;
 
