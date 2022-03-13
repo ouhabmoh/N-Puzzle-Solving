@@ -8,13 +8,12 @@ import Model.Taquin.Taquin;
 import java.util.*;
 
 public abstract class Recherche implements Runnable {
-    private Noeud root;
+    protected Noeud root;
     protected Taquin but;
     protected Ouvert ouvert;
-    private Map<Taquin, Noeud> fermer = new HashMap<>();
-    private static List<Action> actions = Arrays.asList(new Up(), new Down(), new Right(), new Left());
-    private int profondeur = 0;
-    protected int maxProfondeur = -1;
+    protected Map<Taquin, Noeud> fermer = new HashMap<>();
+    protected static List<Action> actions = Arrays.asList(new Up(), new Down(), new Right(), new Left());
+    protected int profondeur = 0;
     protected List<Action> solution;
 
     public Recherche(Taquin etatInitial, Taquin but) {
@@ -24,42 +23,7 @@ public abstract class Recherche implements Runnable {
 
 
 
-    public List<Action> run(){
-
-
-        ouvert.add(root);
-        while(!ouvert.isEmpty()){
-
-            Noeud noeud = ouvert.remove();
-            updateProfondeur(noeud.getProfondeur());
-
-            if(fermer.containsKey(noeud.getTaquin()))
-                continue;
-
-            if(isGoal(noeud)){
-                System.out.println(noeud.getProfondeur());
-                return trackSolution(noeud);
-            }
-
-            if(profondeur == maxProfondeur){
-                fermer.put(noeud.getTaquin(),noeud);
-                continue;
-            }
-
-
-
-
-
-            fermer.put(noeud.getTaquin(),noeud);
-
-            for(Action action:getValidActions(noeud)){
-                Noeud newNoeud = createNoeud(noeud, action);
-                ouvert.add(newNoeud);
-            }
-        }
-
-        return Collections.emptyList();
-    }
+    public abstract List<Action> run();
 
     public boolean isGoal(Noeud noeud){
         Taquin taquin = noeud.getTaquin();
