@@ -1,7 +1,6 @@
-package Model;
+package Model.Taquin;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Taquin {
     private int[][] taquin;
@@ -80,8 +79,9 @@ public class Taquin {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        Taquin taquin = new Taquin(copyTaquin(),size);
+    public Object clone() throws CloneNotSupportedException {
+        Taquin taquin = (Taquin) super.clone();
+        taquin.setTaquin(copyTaquin());
         return taquin;
     }
 

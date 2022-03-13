@@ -2,6 +2,7 @@ package Model;
 
 import Model.Actions.Action;
 import Model.Actions.ActionVide;
+import Model.Taquin.Taquin;
 
 import java.util.Objects;
 

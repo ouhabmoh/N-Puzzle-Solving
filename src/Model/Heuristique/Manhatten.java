@@ -1,4 +1,8 @@
-package Model;
+package Model.Heuristique;
+
+import Model.Taquin.Index;
+import Model.Noeud;
+import Model.Taquin.Taquin;
 
 public class Manhatten extends Heuristique{
     @Override

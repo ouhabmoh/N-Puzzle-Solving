@@ -1,6 +1,10 @@
-package Model;
+package Model.Recherche;
 
 import Model.Actions.Action;
+import Model.Heuristique.Heuristique;
+import Model.Noeud;
+import Model.OuverDS.Priority;
+import Model.Taquin.Taquin;
 
 public class A extends Recherche{
 

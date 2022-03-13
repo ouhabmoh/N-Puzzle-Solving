@@ -1,4 +1,7 @@
-package Model;
+package Model.Heuristique;
+
+import Model.Noeud;
+import Model.Taquin.Taquin;
 
 public abstract class Heuristique {
 

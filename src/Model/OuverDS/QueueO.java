@@ -1,4 +1,6 @@
-package Model;
+package Model.OuverDS;
+
+import Model.Noeud;
 
 import java.util.LinkedList;
 import java.util.Queue;

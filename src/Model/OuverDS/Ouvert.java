@@ -1,4 +1,6 @@
-package Model;
+package Model.OuverDS;
+
+import Model.Noeud;
 
 public interface Ouvert {
     boolean isEmpty();

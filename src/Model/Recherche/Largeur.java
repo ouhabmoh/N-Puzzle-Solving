@@ -1,8 +1,7 @@
-package Model;
+package Model.Recherche;
 
-import Model.Actions.*;
-
-import java.util.*;
+import Model.OuverDS.QueueO;
+import Model.Taquin.Taquin;
 
 public class Largeur extends Recherche{
 

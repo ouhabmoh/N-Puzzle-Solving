@@ -1,13 +1,14 @@
 package Model;
 
 import Model.Actions.Action;
+import Model.Heuristique.Heuristique;
+import Model.Heuristique.Manhatten;
+import Model.Recherche.A;
+import Model.Recherche.Recherche;
+import Model.Taquin.InitEtat;
+import Model.Taquin.Taquin;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
-
-import static java.lang.System.exit;
 
 public class Main {
     private static int n = 3;

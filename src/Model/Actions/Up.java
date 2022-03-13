@@ -1,7 +1,7 @@
 package Model.Actions;
 
-import Model.Index;
-import Model.Taquin;
+import Model.Taquin.Index;
+import Model.Taquin.Taquin;
 
 public class Up extends Action{
     public Up() {

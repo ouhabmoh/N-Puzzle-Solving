@@ -1,4 +1,4 @@
-package Model;
+package Model.Taquin;
 
 public  class Solvable {
     private int n;

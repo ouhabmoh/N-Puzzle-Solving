@@ -1,4 +1,7 @@
-package Model;
+package Model.Recherche;
+
+import Model.OuverDS.StackOv;
+import Model.Taquin.Taquin;
 
 public class Profondeur extends Recherche{
 
