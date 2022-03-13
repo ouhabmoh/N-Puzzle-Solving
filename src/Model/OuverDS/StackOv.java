@@ -1,6 +1,6 @@
 package Model.OuverDS;
 
-import Model.Noeud;
+import Model.Recherche.Noeud;
 
 import java.util.Stack;
 

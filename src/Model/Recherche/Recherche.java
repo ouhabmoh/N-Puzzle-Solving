@@ -1,7 +1,6 @@
 package Model.Recherche;
 
 import Model.Actions.*;
-import Model.Noeud;
 import Model.OuverDS.Ouvert;
 import Model.Taquin.Taquin;
 

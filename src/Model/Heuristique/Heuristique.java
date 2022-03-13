@@ -1,6 +1,6 @@
 package Model.Heuristique;
 
-import Model.Noeud;
+import Model.Recherche.Noeud;
 import Model.Taquin.Taquin;
 
 public abstract class Heuristique {

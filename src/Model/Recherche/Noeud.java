@@ -1,4 +1,4 @@
-package Model;
+package Model.Recherche;
 
 import Model.Actions.Action;
 import Model.Actions.ActionVide;

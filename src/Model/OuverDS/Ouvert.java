@@ -1,6 +1,6 @@
 package Model.OuverDS;
 
-import Model.Noeud;
+import Model.Recherche.Noeud;
 
 public interface Ouvert {
     boolean isEmpty();
