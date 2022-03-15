@@ -16,12 +16,14 @@ public class Experementing {
     }
 
     public void runExperiments() {
+        double m = 0;
         for (Recherche recherche : prepareRecherche()) {
             long time = TimeTest.testTime(recherche);
             double memory = TimeTest.getMemoryUsage();
             // get right statical data about node develope et exploré
-            Results results = new Results(recherche, time, memory);
+            Results results = new Results(recherche, time, memory-m);
             results.save();
+            m = memory;
         }
     }
 
