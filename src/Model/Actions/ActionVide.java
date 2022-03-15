@@ -3,7 +3,7 @@ package Model.Actions;
 import Model.Taquin.Index;
 import Model.Taquin.Taquin;
 
-public class ActionVide extends Action{
+public class ActionVide extends Action {
 
     public ActionVide() {
         v = 0;

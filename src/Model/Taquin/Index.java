@@ -1,8 +1,8 @@
 package Model.Taquin;
 
 public class Index {
-    private int i;
-    private int j;
+    private final int i;
+    private final int j;
 
     public Index(int i, int j) {
         this.i = i;

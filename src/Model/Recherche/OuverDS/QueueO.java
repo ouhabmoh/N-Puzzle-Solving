@@ -5,9 +5,9 @@ import Model.Recherche.Noeud;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class QueueO implements Ouvert{
+public class QueueO implements Ouvert {
 
-    private Queue<Noeud> queue;
+    private final Queue<Noeud> queue;
 
     public QueueO() {
         queue = new LinkedList<>();
@@ -20,7 +20,7 @@ public class QueueO implements Ouvert{
 
     @Override
     public void add(Noeud noeud) {
-         queue.add(noeud);
+        queue.add(noeud);
     }
 
     @Override

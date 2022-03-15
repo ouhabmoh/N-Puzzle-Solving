@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public abstract class Action {
     protected int v;
+
     public abstract void action(Taquin taquin);
 
 
@@ -17,7 +18,7 @@ public abstract class Action {
         return v;
     }
 
-    public boolean eq(Action action){
+    public boolean eq(Action action) {
         return v == -action.getV();
     }
 

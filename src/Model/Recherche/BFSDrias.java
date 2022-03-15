@@ -7,7 +7,7 @@ import Model.Taquin.Taquin;
 import java.util.Collections;
 import java.util.List;
 
-public class BFSDrias extends Recherche{
+public class BFSDrias extends Recherche {
     public BFSDrias(Taquin etatInitial, Taquin but) {
         super(etatInitial, but);
         ouvert = new QueueO();
@@ -18,22 +18,22 @@ public class BFSDrias extends Recherche{
 
 
         ouvert.add(root);
-        while(!ouvert.isEmpty()){
+        while (!ouvert.isEmpty()) {
 
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
-            fermer.put(noeud.getTaquin(),noeud);
+            fermer.put(noeud.getTaquin(), noeud);
 
-            for(Action action:getValidActions(noeud)){
+            for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);
 
-                if(fermer.containsKey(newNoeud.getTaquin()))
+                if (fermer.containsKey(newNoeud.getTaquin()))
                     continue;
-                if(ouvert.contain(newNoeud))
+                if (ouvert.contain(newNoeud))
                     continue;
 
-                if(isGoal(newNoeud))
+                if (isGoal(newNoeud))
                     return trackSolution(newNoeud);
                 ouvert.add(newNoeud);
             }

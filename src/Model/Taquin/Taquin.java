@@ -1,8 +1,6 @@
 package Model.Taquin;
 
-import java.util.Arrays;
-
-public class Taquin implements Cloneable{
+public class Taquin implements Cloneable {
     private int[][] taquin;
     private Index caseVideIndex;
     private int size;
@@ -17,9 +15,9 @@ public class Taquin implements Cloneable{
         int[][] mat = new int[size][size];
         int deb = 0;
         int fin = size;
-        for(int i = 0; i < size; i++){
-            String str = taquin.substring(deb,fin);
-            for(int j = 0; j < size; j++)
+        for (int i = 0; i < size; i++) {
+            String str = taquin.substring(deb, fin);
+            for (int j = 0; j < size; j++)
                 mat[i][j] = Integer.parseInt(String.valueOf(str.charAt(j)));
             deb += size;
             fin += size;
@@ -35,7 +33,7 @@ public class Taquin implements Cloneable{
         this.caseVideIndex = searchCase(0);
     }
 
-    public Index getCaseVide(){
+    public Index getCaseVide() {
         return caseVideIndex;
     }
 
@@ -43,11 +41,11 @@ public class Taquin implements Cloneable{
         this.caseVideIndex = caseVideIndex;
     }
 
-    public Index searchCase(int v){
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++)
-                if(taquin[i][j] == v)
-                    return new Index(i,j);
+    public Index searchCase(int v) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++)
+                if (taquin[i][j] == v)
+                    return new Index(i, j);
         }
         return null;
     }
@@ -69,17 +67,17 @@ public class Taquin implements Cloneable{
     }
 
 
-    public void change(Index from, Index To){
+    public void change(Index from, Index To) {
 
         int t = taquin[To.getI()][To.getJ()];
         taquin[To.getI()][To.getJ()] = 0;
         taquin[from.getI()][from.getJ()] = t;
     }
 
-    public void afficherTaquin(){
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++)
-                System.out.print(taquin[i][j]+"\t");
+    public void afficherTaquin() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++)
+                System.out.print(taquin[i][j] + "\t");
             System.out.println();
         }
 
@@ -107,33 +105,33 @@ public class Taquin implements Cloneable{
         return taquin;
     }
 
-    public int[][] copyTaquin(){
+    public int[][] copyTaquin() {
         int[][] mat = new int[size][size];
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 mat[i][j] = taquin[i][j];
             }
         }
         return mat;
     }
 
-    public boolean equalTaquin(int[][] mat){
+    public boolean equalTaquin(int[][] mat) {
 
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-                if(mat[i][j] != taquin[i][j])
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (mat[i][j] != taquin[i][j])
                     return false;
             }
         }
         return true;
     }
 
-    public String getTaquinStr(){
+    public String getTaquinStr() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-               stringBuilder.append(taquin[i][j]);
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                stringBuilder.append(taquin[i][j]);
             }
         }
         return stringBuilder.toString();

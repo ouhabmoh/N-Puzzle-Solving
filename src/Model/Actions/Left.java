@@ -13,8 +13,8 @@ public class Left extends Action {
 
 
         Index videIndex = taquin.getCaseVide();
-        Index left = new Index(videIndex.getI(),videIndex.getJ()-1);
-        taquin.change(videIndex,left);
+        Index left = new Index(videIndex.getI(), videIndex.getJ() - 1);
+        taquin.change(videIndex, left);
         taquin.setCaseVideIndex(left);
 
     }
@@ -22,9 +22,7 @@ public class Left extends Action {
     @Override
     public boolean isActionValide(Index videIndex, int n) {
 
-        if(videIndex.getJ() == 0)
-            return false;
-        return true;
+        return videIndex.getJ() != 0;
     }
 
     @Override

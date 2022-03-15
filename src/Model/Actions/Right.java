@@ -3,7 +3,7 @@ package Model.Actions;
 import Model.Taquin.Index;
 import Model.Taquin.Taquin;
 
-public class Right extends Action{
+public class Right extends Action {
     public Right() {
         v = 2;
     }
@@ -13,8 +13,8 @@ public class Right extends Action{
 
 
         Index videIndex = taquin.getCaseVide();
-        Index right = new Index(videIndex.getI(),videIndex.getJ()+1);
-        taquin.change(videIndex,right);
+        Index right = new Index(videIndex.getI(), videIndex.getJ() + 1);
+        taquin.change(videIndex, right);
         taquin.setCaseVideIndex(right);
 
     }
@@ -22,9 +22,7 @@ public class Right extends Action{
     @Override
     public boolean isActionValide(Index videIndex, int n) {
 
-        if(videIndex.getJ() == n-1)
-            return false;
-        return true;
+        return videIndex.getJ() != n - 1;
     }
 
     @Override

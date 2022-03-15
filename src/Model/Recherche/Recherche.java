@@ -8,11 +8,11 @@ import Model.Taquin.Taquin;
 import java.util.*;
 
 public abstract class Recherche implements Runnable {
+    protected static List<Action> actions = Arrays.asList(new Up(), new Down(), new Right(), new Left());
     protected Noeud root;
     protected Taquin but;
     protected Ouvert ouvert;
     protected Map<Taquin, Noeud> fermer = new HashMap<>();
-    protected static List<Action> actions = Arrays.asList(new Up(), new Down(), new Right(), new Left());
     protected int profondeur = 0;
     protected List<Action> solution;
 
@@ -22,20 +22,19 @@ public abstract class Recherche implements Runnable {
     }
 
 
-
     public abstract List<Action> run();
 
-    public boolean isGoal(Noeud noeud){
+    public boolean isGoal(Noeud noeud) {
         Taquin taquin = noeud.getTaquin();
-        return Arrays.deepEquals(taquin.getTaquin(),but.getTaquin());
+        return Arrays.deepEquals(taquin.getTaquin(), but.getTaquin());
     }
 
-    public List<Action> trackSolution(Noeud goal){
+    public List<Action> trackSolution(Noeud goal) {
         List<Action> actions = new ArrayList<>(goal.getProfondeur());
 
-        while(goal.getPere() != null){
+        while (goal.getPere() != null) {
             actions.add(0, goal.getAction());
-            goal= goal.getPere();
+            goal = goal.getPere();
         }
         solution = actions;
         return actions;
@@ -45,11 +44,11 @@ public abstract class Recherche implements Runnable {
         return solution;
     }
 
-    public List<Action> getValidActions(Noeud noeud){
+    public List<Action> getValidActions(Noeud noeud) {
 
         List<Action> validActions = new ArrayList<>();
-        for(Action action:actions){
-            if(noeud.validAction(action) && !action.eq(noeud.getAction()))
+        for (Action action : actions) {
+            if (noeud.validAction(action) && !action.eq(noeud.getAction()))
                 validActions.add(action);
         }
 
@@ -71,28 +70,26 @@ public abstract class Recherche implements Runnable {
     }
 
 
-    public void reset(){
+    public void reset() {
         ouvert.clear();
         fermer.clear();
         profondeur = 0;
     }
 
 
-
-
-    public void updateProfondeur(int p){
+    public void updateProfondeur(int p) {
 
         profondeur = p;
 
-       // System.out.println("Profondeur: "+profondeur+" Ouvert: "+ouvert.size()+" Fermer: "+fermer.size());
+        // System.out.println("Profondeur: "+profondeur+" Ouvert: "+ouvert.size()+" Fermer: "+fermer.size());
 
     }
 
-    public int getOuvertSize(){
+    public int getOuvertSize() {
         return ouvert.size();
     }
 
-    public int getFermerSize(){
+    public int getFermerSize() {
         return fermer.size();
     }
 

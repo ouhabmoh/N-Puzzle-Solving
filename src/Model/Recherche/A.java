@@ -8,7 +8,7 @@ import Model.Taquin.Taquin;
 import java.util.Collections;
 import java.util.List;
 
-public class A extends Recherche{
+public class A extends Recherche {
 
     Heuristique heuristique;
 
@@ -18,27 +18,27 @@ public class A extends Recherche{
         ouvert = new Priority();
     }
 
-    public List<Action> run(){
+    public List<Action> run() {
 
 
         ouvert.add(root);
-        while(!ouvert.isEmpty()){
+        while (!ouvert.isEmpty()) {
 
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
-            if(fermer.containsKey(noeud.getTaquin()))
+            if (fermer.containsKey(noeud.getTaquin()))
                 continue;
 
-            if(isGoal(noeud)){
+            if (isGoal(noeud)) {
                 System.out.println(noeud.getProfondeur());
                 return trackSolution(noeud);
             }
 
 
-            fermer.put(noeud.getTaquin(),noeud);
+            fermer.put(noeud.getTaquin(), noeud);
 
-            for(Action action:getValidActions(noeud)){
+            for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);
                 ouvert.add(newNoeud);
             }
@@ -51,14 +51,14 @@ public class A extends Recherche{
     @Override
     public Noeud createNoeud(Noeud pere, Action action) {
 
-        Noeud noeud =  super.createNoeud(pere, action);
+        Noeud noeud = super.createNoeud(pere, action);
         evaluate(noeud);
         return noeud;
 
     }
 
-    public void evaluate(Noeud noeud){
-        int score = noeud.getProfondeur() + heuristique.evaluate(noeud,but);
+    public void evaluate(Noeud noeud) {
+        int score = noeud.getProfondeur() + heuristique.evaluate(noeud, but);
         noeud.setScore(score);
     }
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class InitEtat {
 
-    public static Taquin getEtatInitial(){
+    public static Taquin getEtatInitial() {
         Taquin taquin = new Taquin("283164705", Main.getN());
 //        int[][] mat =  new int[Main.getN()][Main.getN()];
 //        mat[0][0] = 2;
@@ -24,13 +24,13 @@ public class InitEtat {
         return taquin;
     }
 
-    public static List<Taquin> getTestingData(){
+    public static List<Taquin> getTestingData() {
         List<Taquin> taquins = Arrays.asList(new Taquin("413726058", Main.getN())
-                                            ,new Taquin("340126758", Main.getN())
-                                            ,new Taquin("152703846", Main.getN())
-                                            ,new Taquin("340126758", Main.getN())
-                                            ,new Taquin("253187046", Main.getN())
-                                            ,new Taquin("412608573", Main.getN())
+                , new Taquin("340126758", Main.getN())
+                , new Taquin("152703846", Main.getN())
+                , new Taquin("340126758", Main.getN())
+                , new Taquin("253187046", Main.getN())
+                , new Taquin("412608573", Main.getN())
 //                                            ,new Taquin("283164705", Main.getN())
 //                                            ,new Taquin("283164705", Main.getN())
 //                                            ,new Taquin("283164705", Main.getN())
@@ -59,9 +59,9 @@ public class InitEtat {
         return taquins;
     }
 
-    public static Taquin getEtatFinal(){
+    public static Taquin getEtatFinal() {
         Taquin taquin = new Taquin(Main.getN());
-        int[][] mat =  new int[Main.getN()][Main.getN()];
+        int[][] mat = new int[Main.getN()][Main.getN()];
         mat[0][0] = 1;
         mat[0][1] = 2;
         mat[0][2] = 3;
@@ -76,7 +76,7 @@ public class InitEtat {
         return taquin;
     }
 
-    public static Taquin getEtatFinalNormale(){
+    public static Taquin getEtatFinalNormale() {
         return new Taquin("123456780", Main.getN());
     }
 }

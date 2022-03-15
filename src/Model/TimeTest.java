@@ -5,7 +5,7 @@ import java.time.Instant;
 
 public class TimeTest {
 
-    public static long testTime(Runnable exp){
+    public static long testTime(Runnable exp) {
         Instant debut = Instant.now();
         exp.run();
         Instant fin = Instant.now();
@@ -14,14 +14,14 @@ public class TimeTest {
         return timeElapsed.toMillis();
     }
 
-    public static long testTimeAverage(Runnable exp, int nbTry){
+    public static long testTimeAverage(Runnable exp, int nbTry) {
         long average = 0;
-        for(int i = 0; i < nbTry; i++){
+        for (int i = 0; i < nbTry; i++) {
             average += testTime(exp);
             exp.reset();
         }
 
 
-        return average/nbTry;
+        return average / nbTry;
     }
 }

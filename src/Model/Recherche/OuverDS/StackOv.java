@@ -4,9 +4,9 @@ import Model.Recherche.Noeud;
 
 import java.util.Stack;
 
-public class StackOv implements Ouvert{
+public class StackOv implements Ouvert {
 
-    private Stack<Noeud> stack;
+    private final Stack<Noeud> stack;
 
     public StackOv() {
         stack = new Stack<>();

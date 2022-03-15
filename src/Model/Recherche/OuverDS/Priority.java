@@ -8,7 +8,7 @@ import java.util.Queue;
 
 public class Priority implements Ouvert {
 
-    private Queue<Noeud> ouvert = new PriorityQueue(new CustomComparator());
+    private final Queue<Noeud> ouvert = new PriorityQueue(new CustomComparator());
 
     @Override
     public boolean isEmpty() {
@@ -17,7 +17,7 @@ public class Priority implements Ouvert {
 
     @Override
     public void add(Noeud noeud) {
-            ouvert.add(noeud);
+        ouvert.add(noeud);
     }
 
     @Override

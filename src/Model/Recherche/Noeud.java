@@ -23,21 +23,22 @@ public class Noeud {
         this.taquin = taquin;
         this.action = action;
         this.pere = pere;
-        this.profondeur = pere.getProfondeur()+1;
+        this.profondeur = pere.getProfondeur() + 1;
     }
 
-    public void appliquerAction(Action action){
+    public void appliquerAction(Action action) {
         action.action(taquin);
     }
 
-    public boolean validAction(Action action){
-        return action.isActionValide(taquin.getCaseVide(),taquin.getSize());
+    public boolean validAction(Action action) {
+        return action.isActionValide(taquin.getCaseVide(), taquin.getSize());
     }
 
-    public void afficherNoeud(){
+    public void afficherNoeud() {
         System.out.println(profondeur);
         taquin.afficherTaquin();
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

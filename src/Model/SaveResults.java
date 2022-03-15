@@ -1,23 +1,20 @@
 package Model;
 
 import Model.Actions.Action;
-import Model.Main;
-import Model.Recherche.A;
 import Model.Recherche.Recherche;
 import Model.Taquin.Taquin;
 
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
 public class SaveResults {
-    private Taquin taquinInitial;
-    private List<Action> solution;
-    private long time;
-    private int etatDeveloper;
-    private int etatExplorer;
-    private String algo;
+    private final Taquin taquinInitial;
+    private final List<Action> solution;
+    private final long time;
+    private final int etatDeveloper;
+    private final int etatExplorer;
+    private final String algo;
 
     public SaveResults(Taquin taquinInitial, List<Action> solution, long time, int etatDeveloper, int etatExplorer, String algo) {
         this.taquinInitial = taquinInitial;
@@ -28,7 +25,7 @@ public class SaveResults {
         this.algo = algo;
     }
 
-    public SaveResults(Recherche recherche, long time){
+    public SaveResults(Recherche recherche, long time) {
         this.taquinInitial = recherche.getRoot().getTaquin();
         this.solution = recherche.getSolution();
         this.time = time;
@@ -37,20 +34,20 @@ public class SaveResults {
         this.algo = recherche.toString();
     }
 
-    public void save(){
+    public void save() {
 
-        try (FileWriter out = new FileWriter("result.txt",true)){
+        try (FileWriter out = new FileWriter("result.txt", true)) {
 
-            out.write(taquinInitial.getTaquinStr()+"\t");
+            out.write(taquinInitial.getTaquinStr() + "\t");
 
-            out.write(solution.size() +"\t");
+            out.write(solution.size() + "\t");
 
-            out.write(time +"\t");
-            out.write(etatDeveloper +"\t");
-            out.write(etatExplorer +"\t");
-            out.write(algo+"\t");
-            for(Action action:solution)
-                out.write(action.toString()+"\t");
+            out.write(time + "\t");
+            out.write(etatDeveloper + "\t");
+            out.write(etatExplorer + "\t");
+            out.write(algo + "\t");
+            for (Action action : solution)
+                out.write(action.toString() + "\t");
             out.write("\n");
 
         } catch (IOException e) {

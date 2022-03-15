@@ -3,7 +3,6 @@ package Model.Recherche;
 import Model.Actions.Action;
 import Model.Recherche.Heuristique.Heuristique;
 import Model.Recherche.OuverDS.Priority;
-import Model.Recherche.Recherche;
 import Model.Taquin.Taquin;
 
 import java.util.Collections;
@@ -19,36 +18,33 @@ public class ADrias extends Recherche {
         ouvert = new Priority();
     }
 
-    public List<Action> run(){
+    public List<Action> run() {
 
 
         ouvert.add(root);
-        while(!ouvert.isEmpty()){
+        while (!ouvert.isEmpty()) {
 
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
 
+            fermer.put(noeud.getTaquin(), noeud);
 
-            fermer.put(noeud.getTaquin(),noeud);
-
-            if(isGoal(noeud)){
+            if (isGoal(noeud)) {
                 System.out.println(noeud.getProfondeur());
                 return trackSolution(noeud);
             }
 
 
-
-
-            for(Action action:getValidActions(noeud)){
+            for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);
                 ouvert.remove(newNoeud);
                 ouvert.add(newNoeud);
                 Noeud ex = fermer.get(newNoeud.getTaquin());
-                if(ex != null && newNoeud.getScore() < ex.getScore()){
-                   ex.setScore(newNoeud.getScore());
-                   ex.setPere(noeud);
-                   ex.setProfondeur(noeud.getProfondeur()+1);
+                if (ex != null && newNoeud.getScore() < ex.getScore()) {
+                    ex.setScore(newNoeud.getScore());
+                    ex.setPere(noeud);
+                    ex.setProfondeur(noeud.getProfondeur() + 1);
                 }
             }
 
@@ -62,14 +58,14 @@ public class ADrias extends Recherche {
     @Override
     public Noeud createNoeud(Noeud pere, Action action) {
 
-        Noeud noeud =  super.createNoeud(pere, action);
+        Noeud noeud = super.createNoeud(pere, action);
         evaluate(noeud);
         return noeud;
 
     }
 
-    public void evaluate(Noeud noeud){
-        int score = noeud.getProfondeur() + heuristique.evaluate(noeud,but);
+    public void evaluate(Noeud noeud) {
+        int score = noeud.getProfondeur() + heuristique.evaluate(noeud, but);
         noeud.setScore(score);
     }
 

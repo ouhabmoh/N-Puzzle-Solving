@@ -7,7 +7,7 @@ import Model.Taquin.Taquin;
 import java.util.Collections;
 import java.util.List;
 
-public class Profondeur extends Recherche{
+public class Profondeur extends Recherche {
     private int maxProfondeur;
 
     public Profondeur(Taquin etatInitial, Taquin but) {
@@ -21,35 +21,32 @@ public class Profondeur extends Recherche{
         ouvert = new StackOv();
     }
 
-    public List<Action> run(){
+    public List<Action> run() {
 
 
         ouvert.add(root);
-        while(!ouvert.isEmpty()){
+        while (!ouvert.isEmpty()) {
 
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
-            if(fermer.containsKey(noeud.getTaquin()))
+            if (fermer.containsKey(noeud.getTaquin()))
                 continue;
 
-            if(isGoal(noeud)){
+            if (isGoal(noeud)) {
                 System.out.println(noeud.getProfondeur());
                 return trackSolution(noeud);
             }
 
-            if(profondeur == maxProfondeur){
-                fermer.put(noeud.getTaquin(),noeud);
+            if (profondeur == maxProfondeur) {
+                fermer.put(noeud.getTaquin(), noeud);
                 continue;
             }
 
 
+            fermer.put(noeud.getTaquin(), noeud);
 
-
-
-            fermer.put(noeud.getTaquin(),noeud);
-
-            for(Action action:getValidActions(noeud)){
+            for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);
                 ouvert.add(newNoeud);
             }

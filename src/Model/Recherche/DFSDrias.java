@@ -7,8 +7,8 @@ import Model.Taquin.Taquin;
 import java.util.Collections;
 import java.util.List;
 
-public class DFSDrias extends Recherche{
-    private int maxProfondeur;
+public class DFSDrias extends Recherche {
+    private final int maxProfondeur;
 
     public DFSDrias(Taquin etatInitial, Taquin but, int maxProfondeur) {
         super(etatInitial, but);
@@ -16,33 +16,32 @@ public class DFSDrias extends Recherche{
         ouvert = new StackOv();
     }
 
-    public List<Action> run(){
+    public List<Action> run() {
 
 
         ouvert.add(root);
-        while(!ouvert.isEmpty()){
+        while (!ouvert.isEmpty()) {
 
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
-            fermer.put(noeud.getTaquin(),noeud);
+            fermer.put(noeud.getTaquin(), noeud);
 
 
-
-            if(profondeur == maxProfondeur)
+            if (profondeur == maxProfondeur)
                 continue;
 
 
-            for(Action action:getValidActions(noeud)){
+            for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);
 
-                if(fermer.containsKey(newNoeud.getTaquin()))
+                if (fermer.containsKey(newNoeud.getTaquin()))
                     continue;
 
-                if(ouvert.contain(newNoeud))
+                if (ouvert.contain(newNoeud))
                     continue;
 
-                if(isGoal(newNoeud))
+                if (isGoal(newNoeud))
                     return trackSolution(newNoeud);
 
                 ouvert.add(newNoeud);
