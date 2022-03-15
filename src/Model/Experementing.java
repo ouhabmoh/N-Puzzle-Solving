@@ -18,9 +18,9 @@ public class Experementing {
     public void runExperiments() {
         for (Recherche recherche : prepareRecherche()) {
             long time = TimeTest.testTime(recherche);
-            System.out.println(time);
+            double memory = TimeTest.getMemoryUsage();
             // get right statical data about node develope et exploré
-            Results results = new Results(recherche, time);
+            Results results = new Results(recherche, time, memory);
             results.save();
         }
     }
