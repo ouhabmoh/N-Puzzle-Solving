@@ -39,6 +39,9 @@ public class Experementing {
 //            recherches.add(recherche5);
             Recherche recherche3 = new A(taquin, InitEtat.getEtatFinalNormale(), new Manhatten());
             recherches.add(recherche3);
+
+            Recherche recherche6 = new ADrias(taquin, InitEtat.getEtatFinalNormale(), new Manhatten());
+            recherches.add(recherche6);
         }
         return recherches;
     }
