@@ -42,25 +42,17 @@ public class ADrias extends Recherche {
 
             for(Action action:getValidActions(noeud)){
                 Noeud newNoeud = createNoeud(noeud, action);
-                boolean ov = ouvert.contain(newNoeud);
-                boolean fr = fermer.containsKey(newNoeud.getTaquin());
-                if(!ov && !fr){
-                    ouvert.add(newNoeud);
-
-                }else if(ov){
-                    ouvert.remove(newNoeud);
-                    ouvert.add(newNoeud);
-
-                }else if(fr){
-                    Noeud ex = fermer.get(newNoeud.getTaquin());
-                    if(newNoeud.getScore() < ex.getScore()){
-                        ex.setScore(newNoeud.getScore());
-                        ex.setPere(noeud);
-                        ex.setProfondeur(noeud.getProfondeur()+1);
-                    }
+                ouvert.remove(newNoeud);
+                ouvert.add(newNoeud);
+                Noeud ex = fermer.get(newNoeud.getTaquin());
+                if(ex != null && newNoeud.getScore() < ex.getScore()){
+                   ex.setScore(newNoeud.getScore());
+                   ex.setPere(noeud);
+                   ex.setProfondeur(noeud.getProfondeur()+1);
                 }
-
             }
+
+
         }
 
         return Collections.emptyList();
