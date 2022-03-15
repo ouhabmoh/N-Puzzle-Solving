@@ -81,8 +81,7 @@ public abstract class Recherche implements Runnable {
 
 
     public void updateProfondeur(int p){
-        if(p == 0)
-            profondeur = 0;
+
         profondeur = p;
 
         System.out.println("Profondeur: "+profondeur+" Ouvert: "+ouvert.size()+" Fermer: "+fermer.size());

@@ -1,7 +1,9 @@
 package Model;
 
+import Model.Recherche.BFSDrias;
 import Model.Recherche.Heuristique.Manhatten;
 import Model.Recherche.A;
+import Model.Recherche.Largeur;
 import Model.Recherche.Recherche;
 import Model.Taquin.InitEtat;
 import Model.Taquin.Taquin;
@@ -18,12 +20,12 @@ public class Main {
 		etatFinal = InitEtat.getEtatFinal();
 		etatFinal.afficherTaquin();
 
-		Recherche recherche = new A(etatInitial, etatFinal, new Manhatten());
+		Recherche recherche = new Largeur(etatInitial, etatFinal);
 
 		long time = TimeTest.testTime(recherche);
 		System.out.println(time);
 		// get right statical data about node develope et exploré
-		SaveResults saveResults = new SaveResults(etatInitial, recherche.getSolution(), time, recherche.getOuvertSize(), recherche.getFermerSize(), "A*");
+		SaveResults saveResults = new SaveResults(etatInitial, recherche.getSolution(), time, recherche.getOuvertSize(), recherche.getFermerSize(), recherche.toString());
 		saveResults.save();
 
     }
