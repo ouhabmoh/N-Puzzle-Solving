@@ -3,6 +3,7 @@ package Model;
 import Model.Actions.Action;
 import Model.Main;
 import Model.Recherche.A;
+import Model.Recherche.Recherche;
 import Model.Taquin.Taquin;
 
 import java.io.FileInputStream;
@@ -25,6 +26,15 @@ public class SaveResults {
         this.etatDeveloper = etatDeveloper;
         this.etatExplorer = etatExplorer;
         this.algo = algo;
+    }
+
+    public SaveResults(Recherche recherche, long time){
+        this.taquinInitial = recherche.getRoot().getTaquin();
+        this.solution = recherche.getSolution();
+        this.time = time;
+        this.etatDeveloper = recherche.getOuvertSize();
+        this.etatExplorer = recherche.getFermerSize();
+        this.algo = recherche.toString();
     }
 
     public void save(){
