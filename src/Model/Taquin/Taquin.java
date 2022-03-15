@@ -97,7 +97,7 @@ public class Taquin implements Cloneable{
     @Override
     public int hashCode() {
 
-        int result = Arrays.hashCode(getTaquin());
+        int result = Arrays.hashCode(getTaquin()) % 362897;
         return result;
     }
 
