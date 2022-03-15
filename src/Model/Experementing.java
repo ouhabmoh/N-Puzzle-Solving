@@ -29,15 +29,15 @@ public class Experementing {
     public List<Recherche> prepareRecherche(){
         List<Recherche> recherches = new ArrayList<>(taquins.size()*3);
         for(Taquin taquin:taquins){
-            Recherche recherche = new Largeur(taquin, InitEtat.getEtatFinal());
+            Recherche recherche = new Largeur(taquin, InitEtat.getEtatFinalNormale());
             recherches.add(recherche);
-            Recherche recherche2 = new Profondeur(taquin, InitEtat.getEtatFinal(),32);
+            Recherche recherche2 = new Profondeur(taquin, InitEtat.getEtatFinalNormale(),32);
             recherches.add(recherche2);
-            Recherche recherche4 = new BFSDrias(taquin, InitEtat.getEtatFinal());
+            Recherche recherche4 = new BFSDrias(taquin, InitEtat.getEtatFinalNormale());
             recherches.add(recherche4);
-            Recherche recherche5 = new DFSDrias(taquin, InitEtat.getEtatFinal(),32);
+            Recherche recherche5 = new DFSDrias(taquin, InitEtat.getEtatFinalNormale(),32);
             recherches.add(recherche5);
-            Recherche recherche3 = new A(taquin, InitEtat.getEtatFinal(), new Manhatten());
+            Recherche recherche3 = new A(taquin, InitEtat.getEtatFinalNormale(), new Manhatten());
             recherches.add(recherche3);
         }
         return recherches;
