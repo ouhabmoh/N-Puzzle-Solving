@@ -34,7 +34,7 @@ public class BFSDrias extends Recherche{
                     continue;
 
                 if(isGoal(newNoeud))
-                    return trackSolution(noeud);
+                    return trackSolution(newNoeud);
                 ouvert.add(newNoeud);
             }
         }
