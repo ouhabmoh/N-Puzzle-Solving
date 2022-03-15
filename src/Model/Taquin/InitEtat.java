@@ -25,37 +25,37 @@ public class InitEtat {
     }
 
     public static List<Taquin> getTestingData(){
-        List<Taquin> taquins = Arrays.asList(new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN())
-                                            ,new Taquin("283164705", Main.getN()));
+        List<Taquin> taquins = Arrays.asList(new Taquin("413726058", Main.getN())
+                                            ,new Taquin("340126758", Main.getN())
+                                            ,new Taquin("152703846", Main.getN())
+                                            ,new Taquin("340126758", Main.getN())
+                                            ,new Taquin("253187046", Main.getN())
+                                            ,new Taquin("412608573", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+//                                            ,new Taquin("283164705", Main.getN())
+        );
         return taquins;
     }
 
@@ -74,5 +74,9 @@ public class InitEtat {
 
         taquin.setTaquin(mat);
         return taquin;
+    }
+
+    public static Taquin getEtatFinalNormale(){
+        return new Taquin("123456780", Main.getN());
     }
 }
