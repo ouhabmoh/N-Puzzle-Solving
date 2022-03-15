@@ -16,10 +16,12 @@ public class Experementing {
     }
 
     public void runExperiments() {
-        double m = 0;
-        for (Recherche recherche : prepareRecherche()) {
-            long time = TimeTest.testTime(recherche);
-            double memory = TimeTest.getMemoryUsage();
+
+        List<Recherche> rechercheList = prepareRecherche();
+        double m =  ComplexiteTest.getMemoryUsage();
+        for (Recherche recherche : rechercheList) {
+            long time = ComplexiteTest.testTime(recherche);
+            double memory = ComplexiteTest.getMemoryUsage();
             // get right statical data about node develope et exploré
             Results results = new Results(recherche, time, memory-m);
             results.save();

@@ -18,7 +18,7 @@ public class Main {
 //
 //		Recherche recherche = new Largeur(etatInitial, etatFinal);
 //
-//		long time = TimeTest.testTime(recherche);
+//		long time = ComplexiteTest.testTime(recherche);
 //		System.out.println(time);
 //		// get right statical data about node develope et exploré
 //		Results saveResults = new Results(etatInitial, recherche.getSolution(), time, recherche.getOuvertSize(), recherche.getFermerSize(), recherche.toString());
