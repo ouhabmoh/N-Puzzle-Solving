@@ -3,7 +3,7 @@ package Model;
 import java.time.Duration;
 import java.time.Instant;
 
-public class TimeTest {
+public class ComplexiteTest {
     static final long MEGABYTE_FACTOR = 1024L * 1024L;
 
     public static long testTime(Runnable exp) {
@@ -30,7 +30,7 @@ public class TimeTest {
         return bytesToMiB(getUsedMemory());
     }
 
-    public static long getTotalMemory() {
+    private static long getTotalMemory() {
         return Runtime.getRuntime().totalMemory();
     }
 
@@ -38,16 +38,16 @@ public class TimeTest {
         return ((double) bytes / MEGABYTE_FACTOR);
     }
 
-    public static long getMaxMemory() {
+    private static long getMaxMemory() {
         return Runtime.getRuntime().maxMemory();
     }
 
-    public static long getUsedMemory() {
+    private static long getUsedMemory() {
         return getTotalMemory() - getFreeMemory();
     }
 
 
-    public static long getFreeMemory() {
+    private static long getFreeMemory() {
         return Runtime.getRuntime().freeMemory();
     }
 }
