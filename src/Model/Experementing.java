@@ -31,12 +31,12 @@ public class Experementing {
         for(Taquin taquin:taquins){
             Recherche recherche = new Largeur(taquin, InitEtat.getEtatFinalNormale());
             recherches.add(recherche);
-            Recherche recherche2 = new Profondeur(taquin, InitEtat.getEtatFinalNormale(),32);
-            recherches.add(recherche2);
+//            Recherche recherche2 = new Profondeur(taquin, InitEtat.getEtatFinalNormale(),32);
+//            recherches.add(recherche2);
             Recherche recherche4 = new BFSDrias(taquin, InitEtat.getEtatFinalNormale());
             recherches.add(recherche4);
-            Recherche recherche5 = new DFSDrias(taquin, InitEtat.getEtatFinalNormale(),32);
-            recherches.add(recherche5);
+//            Recherche recherche5 = new DFSDrias(taquin, InitEtat.getEtatFinalNormale(),32);
+//            recherches.add(recherche5);
             Recherche recherche3 = new A(taquin, InitEtat.getEtatFinalNormale(), new Manhatten());
             recherches.add(recherche3);
         }
