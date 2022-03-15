@@ -23,6 +23,11 @@ public class StackOv implements Ouvert{
     }
 
     @Override
+    public boolean contain(Noeud noeud) {
+        return stack.contains(noeud);
+    }
+
+    @Override
     public Noeud remove() {
         return stack.pop();
     }

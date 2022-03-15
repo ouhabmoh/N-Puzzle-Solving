@@ -21,6 +21,11 @@ public class Priority implements Ouvert {
     }
 
     @Override
+    public boolean contain(Noeud noeud) {
+        return ouvert.contains(noeud);
+    }
+
+    @Override
     public Noeud remove() {
         return ouvert.poll();
     }

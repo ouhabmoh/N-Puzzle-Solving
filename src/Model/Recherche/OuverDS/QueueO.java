@@ -24,6 +24,11 @@ public class QueueO implements Ouvert{
     }
 
     @Override
+    public boolean contain(Noeud noeud) {
+        return queue.contains(noeud);
+    }
+
+    @Override
     public Noeud remove() {
         return queue.remove();
     }
