@@ -82,8 +82,7 @@ public class Taquin implements Cloneable{
                 System.out.print(taquin[i][j]+"\t");
             System.out.println();
         }
-        int[][] mat = taquin.clone();
-        System.out.println();
+
     }
 
     @Override
@@ -97,7 +96,7 @@ public class Taquin implements Cloneable{
     @Override
     public int hashCode() {
 
-        int result = Arrays.hashCode(getTaquin()) % 362897;
+        int result = Integer.valueOf(getTaquinStr()) % 362897;
         return result;
     }
 
