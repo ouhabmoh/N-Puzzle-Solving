@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class SaveResults {
+public class Results {
     private final Taquin taquinInitial;
     private final List<Action> solution;
     private final long time;
@@ -16,7 +16,7 @@ public class SaveResults {
     private final int etatExplorer;
     private final String algo;
 
-    public SaveResults(Taquin taquinInitial, List<Action> solution, long time, int etatDeveloper, int etatExplorer, String algo) {
+    public Results(Taquin taquinInitial, List<Action> solution, long time, int etatDeveloper, int etatExplorer, String algo) {
         this.taquinInitial = taquinInitial;
         this.solution = solution;
         this.time = time;
@@ -25,7 +25,7 @@ public class SaveResults {
         this.algo = algo;
     }
 
-    public SaveResults(Recherche recherche, long time) {
+    public Results(Recherche recherche, long time) {
         this.taquinInitial = recherche.getRoot().getTaquin();
         this.solution = recherche.getSolution();
         this.time = time;

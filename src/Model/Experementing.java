@@ -20,8 +20,8 @@ public class Experementing {
             long time = TimeTest.testTime(recherche);
             System.out.println(time);
             // get right statical data about node develope et exploré
-            SaveResults saveResults = new SaveResults(recherche, time);
-            saveResults.save();
+            Results results = new Results(recherche, time);
+            results.save();
         }
     }
 

@@ -21,7 +21,7 @@ public class Main {
 //		long time = TimeTest.testTime(recherche);
 //		System.out.println(time);
 //		// get right statical data about node develope et exploré
-//		SaveResults saveResults = new SaveResults(etatInitial, recherche.getSolution(), time, recherche.getOuvertSize(), recherche.getFermerSize(), recherche.toString());
+//		Results saveResults = new Results(etatInitial, recherche.getSolution(), time, recherche.getOuvertSize(), recherche.getFermerSize(), recherche.toString());
 //		saveResults.save();
 
         Experementing experementing = new Experementing(InitEtat.getTestingData());
