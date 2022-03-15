@@ -84,7 +84,7 @@ public abstract class Recherche implements Runnable {
 
         profondeur = p;
 
-        System.out.println("Profondeur: "+profondeur+" Ouvert: "+ouvert.size()+" Fermer: "+fermer.size());
+       // System.out.println("Profondeur: "+profondeur+" Ouvert: "+ouvert.size()+" Fermer: "+fermer.size());
 
     }
 
