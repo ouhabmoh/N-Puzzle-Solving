@@ -33,6 +33,11 @@ public class StackOv implements Ouvert{
     }
 
     @Override
+    public boolean remove(Noeud noeud) {
+        return stack.remove(noeud);
+    }
+
+    @Override
     public void clear() {
         stack.clear();
     }

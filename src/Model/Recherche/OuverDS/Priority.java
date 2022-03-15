@@ -31,6 +31,11 @@ public class Priority implements Ouvert {
     }
 
     @Override
+    public boolean remove(Noeud noeud) {
+        return ouvert.remove(noeud);
+    }
+
+    @Override
     public void clear() {
         ouvert.clear();
     }

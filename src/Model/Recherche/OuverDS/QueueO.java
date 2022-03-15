@@ -34,6 +34,11 @@ public class QueueO implements Ouvert{
     }
 
     @Override
+    public boolean remove(Noeud noeud) {
+        return queue.remove(noeud);
+    }
+
+    @Override
     public void clear() {
         queue.clear();
     }
