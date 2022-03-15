@@ -1,10 +1,7 @@
 package Model;
 
-import Model.Recherche.A;
+import Model.Recherche.*;
 import Model.Recherche.Heuristique.Manhatten;
-import Model.Recherche.Largeur;
-import Model.Recherche.Profondeur;
-import Model.Recherche.Recherche;
 import Model.Taquin.InitEtat;
 import Model.Taquin.Taquin;
 
@@ -24,7 +21,7 @@ public class Experementing {
             long time = TimeTest.testTime(recherche);
             System.out.println(time);
             // get right statical data about node develope et exploré
-            SaveResults saveResults = new SaveResults(recherche.getRoot().getTaquin(), recherche.getSolution(), time, recherche.getOuvertSize(), recherche.getFermerSize(), recherche.toString());
+            SaveResults saveResults = new SaveResults(recherche, time);
             saveResults.save();
         }
     }
@@ -36,6 +33,10 @@ public class Experementing {
             recherches.add(recherche);
             Recherche recherche2 = new Profondeur(taquin, InitEtat.getEtatFinal(),32);
             recherches.add(recherche2);
+            Recherche recherche4 = new BFSDrias(taquin, InitEtat.getEtatFinal());
+            recherches.add(recherche4);
+            Recherche recherche5 = new DFSDrias(taquin, InitEtat.getEtatFinal(),32);
+            recherches.add(recherche5);
             Recherche recherche3 = new A(taquin, InitEtat.getEtatFinal(), new Manhatten());
             recherches.add(recherche3);
         }
