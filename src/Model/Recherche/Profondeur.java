@@ -38,13 +38,14 @@ public class Profondeur extends Recherche {
                 return trackSolution(noeud);
             }
 
-            if (profondeur == maxProfondeur) {
-                fermer.put(noeud.getTaquin(), noeud);
-                continue;
-            }
-
-
             fermer.put(noeud.getTaquin(), noeud);
+
+            if (profondeur == maxProfondeur)
+                continue;
+
+
+
+
 
             for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);

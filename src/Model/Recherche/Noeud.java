@@ -31,7 +31,7 @@ public class Noeud {
     }
 
     public boolean validAction(Action action) {
-        return action.isActionValide(taquin.getCaseVide(), taquin.getSize());
+        return action.isActionValide(taquin);
     }
 
     public void afficherNoeud() {

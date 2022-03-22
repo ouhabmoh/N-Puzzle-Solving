@@ -26,7 +26,7 @@ public abstract class Recherche implements Runnable {
 
     public boolean isGoal(Noeud noeud) {
         Taquin taquin = noeud.getTaquin();
-        return Arrays.deepEquals(taquin.getTaquin(), but.getTaquin());
+        return taquin.getTaquin() == but.getTaquin();
     }
 
     public List<Action> trackSolution(Noeud goal) {

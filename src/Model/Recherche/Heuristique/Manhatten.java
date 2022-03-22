@@ -1,26 +1,24 @@
 package Model.Recherche.Heuristique;
 
 import Model.Recherche.Noeud;
-import Model.Taquin.Index;
 import Model.Taquin.Taquin;
 
 public class Manhatten extends Heuristique {
     @Override
     public int evaluate(Noeud noeud, Taquin etatBut) {
-        int score = 0;
-        Taquin etat = noeud.getTaquin();
-        int n = etat.getSize();
-        double distances = 0;
-        int[][] mat = etat.getTaquin();
+
+        long t = noeud.getTaquin().getTaquin();
+        int n = noeud.getTaquin().getSize() * noeud.getTaquin().getSize();
+        int distances = 0;
+
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (mat[i][j] == 0)
-                    continue;
-                Index index = etatBut.searchCase(mat[i][j]);
-                double d = Math.abs(i - index.getI()) + Math.abs(j - index.getJ());
-                distances += d;
-            }
+            long z = t % 10;
+
+            int indexbut = etatBut.searchCaseIndex(z);
+            distances += Math.abs(i - indexbut);
+            t /= 10;
         }
-        return score;
+
+        return distances;
     }
 }

@@ -41,7 +41,7 @@ public class Results {
 
         try (FileWriter out = new FileWriter("result.txt", true)) {
 
-            out.write(taquinInitial.getTaquinStr() + "\t");
+            out.write(taquinInitial.getTaquin() + "\t");
 
             out.write(solution.size() + "\t");
 
