@@ -6,41 +6,53 @@ public class Solvable {
     public Solvable(int n) {
         this.n = n;
     }
-//
-//    protected int getInvCount(int[][] arr) {
-//        System.out.println();
-//        int inv_count = 0;
-//        for (int i = 0; i < n - 1; i++)
-//            for (int j = i + 1; j < n; j++) {
-//                System.out.println(arr[i][j]);
-//                System.out.println(arr[j][i]);
-//                if (arr[j][i] > 0 && arr[j][i] > arr[i][j])
-//                    inv_count++;
-//            }
-//        System.out.println();
-//        System.out.println(inv_count);
-//        return inv_count;
-//    }
-//
-//
-//    public boolean isSolvable(Taquin taquin) {
-//        taquin.afficherTaquin();
-//        System.out.println(n);
-//        int invCount = getInvCount(taquin.getTaquin());
-//        System.out.println(invCount);
-//        // if n is odd check inv if is even
-//        if (n % 2 != 0)
-//            return invCount % 2 == 0;
-//
-//        // else n is even check for casevide index
-//        Index caseVide = taquin.getCaseVide();
-//        int i = n - caseVide.getI();
-//        if (i % 2 == 0)
-//            return invCount % 2 == 1;
-//        else
-//            return invCount % 2 == 0;
-//
-//
-//    }
+
+    public int getInvCount(byte[] arr) {
+
+        int inv_count = 0;
+        int s = n*n;
+        for (int i = 0; i < s - 1; i++){
+            if(arr[i] == 0)
+                continue;
+
+            for (int j = i + 1; j < s; j++) {
+
+                if (arr[j] > 0 && arr[j] < arr[i])
+                    inv_count++;
+            }
+
+        }
+
+        return inv_count;
+    }
+
+
+    public boolean isSolvable(Taquin taquin) {
+
+        int invCount = getInvCount(taquin.taquinArr());
+
+        // if n is odd check inv if is even
+        if (n % 2 != 0)
+            return invCount % 2 == 0;
+
+        // else n is even check for casevide index
+        int caseVide = taquin.getCaseVide() / n +1;
+
+        if (caseVide % 2 == 0)
+            return invCount % 2 == 1;
+        else
+            return invCount % 2 == 0;
+
+
+    }
+
+    public boolean isSolvable(Taquin taquinInitial, Taquin taquinBut){
+        boolean b1 = isSolvable(taquinInitial);
+        boolean b2 = isSolvable(taquinBut);
+        if((b1 && b2) || (!b1 && !b2))
+            return true;
+
+        return false;
+    }
 
 }
