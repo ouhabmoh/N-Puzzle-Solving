@@ -2,48 +2,50 @@ package Model.Recherche.OuverDS;
 
 import Model.Recherche.Noeud;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 public class StackOv implements Ouvert {
 
-    private final Stack<Noeud> stack;
+    private final Deque<Noeud> ouvert;
 
     public StackOv() {
-        stack = new Stack<>();
+        ouvert = new ArrayDeque<>();
     }
 
     @Override
     public boolean isEmpty() {
-        return stack.isEmpty();
+        return ouvert.isEmpty();
     }
 
     @Override
     public void add(Noeud noeud) {
-        stack.push(noeud);
+        ouvert.push(noeud);
     }
 
     @Override
     public boolean contain(Noeud noeud) {
-        return stack.contains(noeud);
+        return ouvert.contains(noeud);
     }
 
     @Override
     public Noeud remove() {
-        return stack.pop();
+        return ouvert.pop();
     }
 
     @Override
     public boolean remove(Noeud noeud) {
-        return stack.remove(noeud);
+        return ouvert.remove(noeud);
     }
 
     @Override
     public void clear() {
-        stack.clear();
+        ouvert.clear();
     }
 
     @Override
     public int size() {
-        return stack.size();
+        return ouvert.size();
     }
 }
