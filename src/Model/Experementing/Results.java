@@ -1,4 +1,4 @@
-package Model;
+package Model.Experementing;
 
 import Model.Actions.Action;
 import Model.Recherche.Recherche;
@@ -57,5 +57,9 @@ public class Results {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void saveAsCSV(){
+
     }
 }

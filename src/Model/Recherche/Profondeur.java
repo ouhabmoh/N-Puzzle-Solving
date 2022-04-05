@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Profondeur extends Recherche {
-    private int maxProfondeur;
+    private int maxProfondeur = -1;
 
     public Profondeur(Taquin etatInitial, Taquin but) {
         super(etatInitial, but);
@@ -34,7 +34,7 @@ public class Profondeur extends Recherche {
                 continue;
 
             if (isGoal(noeud)) {
-                System.out.println(noeud.getProfondeur());
+//                System.out.println(noeud.getProfondeur());
                 return trackSolution(noeud);
             }
 

@@ -7,9 +7,15 @@ public class MalPlacer extends Heuristique{
     @Override
     public int evaluate(Noeud noeud, Taquin etatBut) {
 
-        long t = noeud.getTaquin().getTaquin();
+
+        return evaluate(noeud.getTaquin(), etatBut);
+    }
+
+    public int evaluate(Taquin etatInitial, Taquin etatBut) {
+
+        long t = etatInitial.getTaquin();
         long t2 = etatBut.getTaquin();
-        int n = noeud.getTaquin().getSize() * noeud.getTaquin().getSize();
+        int n = etatInitial.getSize() * etatInitial.getSize();
         int casesMalPlacer = 0;
 
         for (int i = 0; i < n; i++) {

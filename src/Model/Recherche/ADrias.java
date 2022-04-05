@@ -31,7 +31,7 @@ public class ADrias extends Recherche {
             fermer.put(noeud.getTaquin(), noeud);
 
             if (isGoal(noeud)) {
-                System.out.println(noeud.getProfondeur());
+//                System.out.println(noeud.getProfondeur());
                 return trackSolution(noeud);
             }
 

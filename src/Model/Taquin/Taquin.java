@@ -1,5 +1,6 @@
 package Model.Taquin;
 
+import java.util.List;
 import java.util.Stack;
 
 public class Taquin implements Cloneable {
@@ -16,6 +17,12 @@ public class Taquin implements Cloneable {
     public Taquin(long taquin, int size) {
         this.taquin = taquin;
         this.size = size;
+        this.caseVideIndex = searchCaseIndex(0);
+    }
+
+    public Taquin(List<Integer> taquin, int size) {
+        this.size = size;
+        this.taquin = arrToInt(taquin);
         this.caseVideIndex = searchCaseIndex(0);
     }
 
@@ -77,6 +84,37 @@ public class Taquin implements Cloneable {
         return ((int) (num + (nDigit*k) + saved));
     }
 
+    public byte[] taquinArr(){
+        long t = taquin;
+        int n = size*size;
+        Stack<Byte> taq = new Stack<>();
+        for (int i = 0; i < n; i++) {
+
+            long z = t % 10;
+            taq.push((byte) z);
+
+            t /= 10;
+        }
+        byte[] tB = new byte[n];
+        int i = 0;
+        while (!taq.empty())
+            tB[i++] = taq.pop();
+
+        return tB;
+    }
+
+    public int arrToInt(List<Integer> arr){
+        int p = 1;
+        int n = size*size;
+        int t = 0;
+        for(int i = n-1; i > -1; i--){
+            t += p*arr.get(i);
+            p *= 10;
+        }
+
+        return t;
+    }
+
     public void afficherTaquin() {
         long t = taquin;
         int n = size*size;
@@ -119,4 +157,9 @@ public class Taquin implements Cloneable {
 
 
 
+
+    @Override
+    public String toString() {
+        return taquin+"\n";
+    }
 }

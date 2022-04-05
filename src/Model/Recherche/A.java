@@ -31,7 +31,6 @@ public class A extends Recherche {
                 continue;
 
             if (isGoal(noeud)) {
-                System.out.println(noeud.getProfondeur());
                 return trackSolution(noeud);
             }
 

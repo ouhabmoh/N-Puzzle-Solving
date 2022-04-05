@@ -2,7 +2,7 @@ package Model.Recherche;
 
 import Model.Actions.*;
 import Model.Recherche.OuverDS.Ouvert;
-import Model.Runnable;
+import Model.Experementing.Runnable;
 import Model.Taquin.Taquin;
 
 import java.util.*;
@@ -14,7 +14,7 @@ public abstract class Recherche implements Runnable {
     protected Ouvert ouvert;
     protected Map<Taquin, Noeud> fermer = new HashMap<>();
     protected int profondeur = 0;
-    protected List<Action> solution;
+    protected List<Action> solution = Collections.emptyList();
 
     public Recherche(Taquin etatInitial, Taquin but) {
         this.root = new Noeud(etatInitial);
@@ -51,6 +51,7 @@ public abstract class Recherche implements Runnable {
             if (noeud.validAction(action) && !action.eq(noeud.getAction()))
                 validActions.add(action);
         }
+        Collections.shuffle(validActions);
 
         return validActions;
     }
@@ -96,4 +97,6 @@ public abstract class Recherche implements Runnable {
     public Noeud getRoot() {
         return root;
     }
+
+
 }

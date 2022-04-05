@@ -1,4 +1,4 @@
-package Model;
+package Model.Experementing;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -11,7 +11,6 @@ public class ComplexiteTest {
         exp.run();
         Instant fin = Instant.now();
         Duration timeElapsed = Duration.between(debut, fin);
-        System.out.println(timeElapsed.toMillis());
         return timeElapsed.toMillis();
     }
 

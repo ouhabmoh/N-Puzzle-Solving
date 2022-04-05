@@ -1,23 +1,19 @@
 package Model.Recherche;
 
 import Model.Actions.Action;
-import Model.Recherche.OuverDS.StackOv;
 import Model.Taquin.Taquin;
 
 import java.util.Collections;
 import java.util.List;
 
-public class DFSDrias extends Recherche {
-    protected int maxProfondeur = -1;
+public class DFS2 extends DFSDrias{
 
-    public DFSDrias(Taquin etatInitial, Taquin but, int maxProfondeur) {
-        super(etatInitial, but);
-        this.maxProfondeur = maxProfondeur;
-        ouvert = new StackOv();
+    public DFS2(Taquin etatInitial, Taquin but, int maxProfondeur) {
+        super(etatInitial, but, maxProfondeur);
     }
 
+    @Override
     public List<Action> run() {
-
 
         ouvert.add(root);
         while (!ouvert.isEmpty()) {
@@ -25,7 +21,6 @@ public class DFSDrias extends Recherche {
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
-            fermer.put(noeud.getTaquin(), noeud);
 
 
             if (profondeur == maxProfondeur)
@@ -35,11 +30,7 @@ public class DFSDrias extends Recherche {
             for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);
 
-                if (fermer.containsKey(newNoeud.getTaquin()))
-                    continue;
 
-                if (ouvert.contain(newNoeud))
-                    continue;
 
                 if (isGoal(newNoeud))
                     return trackSolution(newNoeud);
@@ -49,10 +40,5 @@ public class DFSDrias extends Recherche {
         }
 
         return Collections.emptyList();
-    }
-
-    @Override
-    public String toString() {
-        return "DFSDrias";
     }
 }
