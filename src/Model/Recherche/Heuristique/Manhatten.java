@@ -8,7 +8,8 @@ public class Manhatten extends Heuristique {
     public int evaluate(Noeud noeud, Taquin etatBut) {
 
         long t = noeud.getTaquin().getTaquin();
-        int n = noeud.getTaquin().getSize() * noeud.getTaquin().getSize();
+        int s = noeud.getTaquin().getSize();
+        int n = s * s;
         int distances = 0;
 
         for (int i = 0; i < n; i++) {
@@ -17,10 +18,22 @@ public class Manhatten extends Heuristique {
             if(z == 0)
                 continue;
             int indexbut = etatBut.searchCaseIndex(z);
-            distances += Math.abs(i - indexbut);
+            int X1 = getX(n-i-1,s);
+            int X2 = getX(n-indexbut-1,s);
+            int Y1 = getY(n-i-1,s);
+            int Y2 = getY(n-indexbut-1,s);
+            distances += Math.abs(X1 - X2) + Math.abs(Y1-Y2);
 
         }
 
         return distances;
+    }
+
+    private int getX(int index, int n){
+        return index/n;
+    }
+
+    private int getY(int index, int n){
+        return index%n;
     }
 }

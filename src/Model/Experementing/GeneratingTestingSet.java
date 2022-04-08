@@ -1,6 +1,7 @@
 package Model.Experementing;
 
-import Model.Recherche.ADrias;
+import Model.Recherche.A;
+
 import Model.Recherche.Heuristique.Heuristique;
 import Model.Recherche.Heuristique.MalPlacer;
 import Model.Recherche.Heuristique.Manhatten;
@@ -83,7 +84,7 @@ public class GeneratingTestingSet {
                 Heuristique manhatten = new Manhatten();
                 int score = manhatten.evaluate(new Noeud(taquin),InitEtat.getEtatFinalNormale());
 
-                Recherche recherche = new ADrias(taquin,InitEtat.getEtatFinalNormale(),manhatten);
+                Recherche recherche = new A(taquin,InitEtat.getEtatFinalNormale(),manhatten);
                 int scoreA = recherche.run().size();
 
                 int rightDepth = getRightDepth(entry.getKey(), scoreA);

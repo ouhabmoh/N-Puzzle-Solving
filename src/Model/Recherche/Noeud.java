@@ -35,7 +35,6 @@ public class Noeud {
     }
 
     public void afficherNoeud() {
-        System.out.println(profondeur);
         taquin.afficherTaquin();
     }
 

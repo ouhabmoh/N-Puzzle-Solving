@@ -18,6 +18,6 @@ class ManhattenTest {
         Taquin taquin = new Taquin(123780456,3);
         Noeud noeud = new Noeud(taquin);
 
-        assertEquals(15,manhatten.evaluate(noeud,taquinBut));
+        assertEquals(5,manhatten.evaluate(noeud,taquinBut));
     }
 }
