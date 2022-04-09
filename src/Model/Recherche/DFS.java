@@ -34,6 +34,7 @@ public class DFS extends Recherche{
 
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
+            nDeveloper++;
             if (isGoal(noeud))
                 return trackSolution(noeud);
             if(profondeur > seuil)
@@ -49,6 +50,7 @@ public class DFS extends Recherche{
                     continue;
 
                 ouvert.add(newNoeud);
+                nGenerer++;
 
             }
         }

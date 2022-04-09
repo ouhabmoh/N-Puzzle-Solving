@@ -28,7 +28,7 @@ public class A extends Recherche {
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
-
+            nDeveloper++;
             if (isGoal(noeud))
                 return trackSolution(noeud);
 
@@ -39,6 +39,7 @@ public class A extends Recherche {
                 if(!fermer.containsKey(newNoeud.getTaquin())){
                     ouvert.add(newNoeud);
                     fermer.put(newNoeud.getTaquin(),newNoeud);
+                    nGenerer++;
                 }
 
             }

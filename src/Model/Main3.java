@@ -23,7 +23,7 @@ public class Main3 {
             i++;
         }
 
-        try (FileWriter out = new FileWriter("testSetMini.txt", true)) {
+        try (FileWriter out = new FileWriter("testSetMini2.txt", true)) {
 
 
             for (Map.Entry<Taquin,Taquin> entry : taquinM.entrySet())

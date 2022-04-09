@@ -15,6 +15,8 @@ public abstract class Recherche implements Runnable {
     protected Map<Taquin, Noeud> fermer = new HashMap<>();
     protected int profondeur = 0;
     protected List<Action> solution = Collections.emptyList();
+    protected int nDeveloper = 0;
+    protected int nGenerer = 0;
 
     public Recherche(Taquin etatInitial, Taquin but) {
         this.root = new Noeud(etatInitial);
@@ -92,6 +94,14 @@ public abstract class Recherche implements Runnable {
 
     public int getFermerSize() {
         return fermer.size();
+    }
+
+    public int getnDeveloper() {
+        return nDeveloper;
+    }
+
+    public int getnGenerer() {
+        return nGenerer;
     }
 
     public Noeud getRoot() {

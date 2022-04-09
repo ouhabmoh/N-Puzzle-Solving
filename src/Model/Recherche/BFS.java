@@ -24,7 +24,7 @@ public class BFS extends Recherche{
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
-
+            nDeveloper++;
 
             for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);
@@ -36,6 +36,7 @@ public class BFS extends Recherche{
 
                 ouvert.add(newNoeud);
                 fermer.put(newNoeud.getTaquin(),newNoeud);
+                nGenerer++;
             }
         }
 
