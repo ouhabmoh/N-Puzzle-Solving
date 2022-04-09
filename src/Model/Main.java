@@ -32,6 +32,11 @@ public class Main {
         Recherche recherche = new A(etatInitial,etatFinal, man);
         System.out.println(recherche.run().size());
         System.out.println(recherche.getSolution());
+
+        Recherche recherche3 = new BFS(etatInitial,etatFinal);
+        System.out.println(recherche3.run().size());
+        System.out.println(recherche3.getSolution());
+
         int seuil = (int) (2 * man.evaluate(new Noeud(etatInitial),etatFinal));
         System.out.println("seuil "+seuil);
         Recherche recherche2 = new DFS(etatInitial,etatFinal,seuil);

@@ -22,24 +22,25 @@ public class A extends Recherche {
 
 
         ouvert.add(root);
+        fermer.put(root.getTaquin(),root);
         while (!ouvert.isEmpty()) {
 
             Noeud noeud = ouvert.remove();
             updateProfondeur(noeud.getProfondeur());
 
-            if (fermer.containsKey(noeud.getTaquin()))
-                continue;
 
-            if (isGoal(noeud)) {
+            if (isGoal(noeud))
                 return trackSolution(noeud);
-            }
 
 
-            fermer.put(noeud.getTaquin(), noeud);
 
             for (Action action : getValidActions(noeud)) {
                 Noeud newNoeud = createNoeud(noeud, action);
-                ouvert.add(newNoeud);
+                if(!fermer.containsKey(newNoeud.getTaquin())){
+                    ouvert.add(newNoeud);
+                    fermer.put(newNoeud.getTaquin(),newNoeud);
+                }
+
             }
         }
 
